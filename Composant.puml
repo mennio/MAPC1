@@ -2,15 +2,7 @@
 'https://plantuml.com/component-diagram
 
 
-interface Composant
-{
- getName(): String
- getOwner(): Owner
- getSize(): int
- getContient(): String
- appendContent (in content : String) : void
- setOwner(in owner : Owner)
-}
+
 
 abstract ComposantImpl
 {
@@ -34,6 +26,15 @@ class Fichier{
 -contenu : $
 }
 class Repertoire{}
+interface Composant
+{
+ getName(): String
+ getOwner(): Owner
+ getSize(): int
+ getContient(): String
+ appendContent (in content : String) : void
+ setOwner(in owner : Owner)
+}
 
 
 Fichier --> ComposantImpl
@@ -41,9 +42,6 @@ Repertoire --> ComposantImpl
 Composant <|.. ComposantImpl
 
 Composant  "-elems " <--* Repertoire
-
-
-
-  Owner "1  -owner" <--   ComposantImpl
+Owner "1  -owner" <--   ComposantImpl
 
 @enduml
